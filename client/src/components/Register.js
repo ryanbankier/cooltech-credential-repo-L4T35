@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Toast from 'react-bootstrap/Toast'
 
 class Register extends Component{
     constructor(props) {
@@ -54,7 +55,7 @@ class Register extends Component{
     // sends state data to server
     submit(event){
         const data = this.state
-        alert(JSON.stringify(data))
+        
         fetch('/register', {
             method: "POST",
             headers: {
@@ -125,7 +126,7 @@ class Register extends Component{
                                 <option value='sales'>Sales</option>
                             </Form.Select>
                         </Form.Group>
-                        <p>{this.state.message}</p>
+                        <p className="msg">{this.state.message}</p>
                         <Button onClick={this.submit}>Register</Button>
                         <Button href="/">Login</Button>
                     </Form>
